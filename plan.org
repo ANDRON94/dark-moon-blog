@@ -46,16 +46,26 @@ Example: 'Traveling', 'Developing'
 **** TODO Get resource folder name(hash from 'id+name')
 **** TODO Get articles by criteria
 *** TODO User model
-** TODO Create main page [0/2]
-*** TODO Features [0/2]
-**** TODO Load on "/" request
-**** TODO Link to [[*Create%20login%20page][login page]]
-*** TODO Design [0/2]
-**** TODO Test view
+** TODO Create main page [1/2]
+*** DONE Features [2/2]
+    CLOSED: [2016-10-19 ср 00:34]
+    - State "DONE"       from "TODO"       [2016-10-19 ср 00:34]
+**** DONE Load on "/" request
+     CLOSED: [2016-10-19 ср 00:03]
+     - State "DONE"       from "TODO"       [2016-10-19 ср 00:03]
+**** DONE Link to [[*Create%20login%20page][login page]]
+     CLOSED: [2016-10-19 ср 00:34]
+     - State "DONE"       from "TODO"       [2016-10-19 ср 00:34]
+*** TODO Design [1/2]
+**** DONE Test view
+     CLOSED: [2016-10-19 ср 00:35]
+     - State "DONE"       from "TODO"       [2016-10-19 ср 00:35]
 **** TODO Main view
 ** TODO Create login page [0/2]
-*** TODO Features [0/4]
-**** TODO Load on "/login" request
+*** TODO Features [1/4]
+**** DONE Load on "/login" request
+     CLOSED: [2016-10-19 ср 00:35]
+     - State "DONE"       from "TODO"       [2016-10-19 ср 00:35]
 **** TODO On fail: repeat login
 **** TODO On success: redirect to [[*Load%20ALL%20ARTICLES%20on%20"/:author/all"][all articles page]]
 **** TODO Load on session timeout
