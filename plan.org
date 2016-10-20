@@ -27,16 +27,22 @@ Example: 'Traveling', 'Developing'
 *** 'tag'(hash tags)
 *** date(calendar)
 * Tasks [0%]                                                          :tasks:
-** TODO Create database models [0/2]
-*** TODO Article model
-**** Id :integer
-**** Name :string
-**** Status :string
-**** Categories :array of strings
-**** Tags :array of strings
-**** Creation date :date
-**** Last post date :date
-**** Data :string
+** TODO Create database models [0/3]
+*** TODO Article model [1/4]
+**** DONE Create class
+     CLOSED: [2016-10-20 чт 19:39]
+     - State "DONE"       from "TODO"       [2016-10-20 чт 19:39]
+***** Id :integer
+***** Name :string
+***** Status :string
+***** Categories :array of strings
+***** Tags :array of strings
+***** Creation date :date
+***** Last post date :date
+***** Data :string
+**** TODO Create util methods(print, etc.)
+**** TODO Test model
+**** TODO Create database entity
 *** TODO User model
 **** Username :string
 **** Password :string
