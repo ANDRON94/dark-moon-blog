@@ -26,7 +26,11 @@
                   :components
                   ((:file "package")
                    (:file "index" :depends-on ("package"))
-                   (:file "login" :depends-on ("package")))))))
+                   (:file "login" :depends-on ("package"))))
+                 (:module "models"
+                  :components
+                  ((:file "package")
+                   (:file "article" :depends-on ("package")))))))
   :description "Personal blog."
   :long-description
   #.(uiop:read-file-string
