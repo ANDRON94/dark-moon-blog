@@ -6,7 +6,7 @@
   :homepage "https://github.com/ANDRON94/dark-moon-blog"
   :bug-tracker "https://github.com/ANDRON94/dark-moon-blog/issues"
   :source-control (:git "git@github.com:ANDRON94/dark-moon-blog.git")
-  :depends-on (#:lucerne #:cl-mongo)
+  :depends-on (#:lucerne #:cl-mongo #:local-time)
   :defsystem-depends-on (#:asdf-linguist)
   :components ((:module "assets"
                 :components
@@ -22,6 +22,7 @@
                 ((:file "packages")
                  (:file "app" :depends-on ("packages"))
                  (:file "dark-moon-blog" :depends-on("packages"))
+                 (:file "utils" :depends-on ("packages"))
                  (:module "routes"
                   :components
                   ((:file "package")
