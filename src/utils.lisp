@@ -15,3 +15,11 @@
     (let* ((len (length sequence))
            (num (if (> len count) count len)))
       (subseq sequence 0 num)))
+
+(defun list->array (list)
+  "Convert @cl:param(list) to one-dimensional array"
+  (make-array (length list) :initial-contents list))
+
+(defun array->list (array)
+  "Convert one-dimensional @cl:param(array) to list"
+  (loop :for elem :across array :collect elem))

@@ -22,4 +22,6 @@
                 #:unix-to-timestamp
                 #:format-timestring)
   (:export #:format-date
-           #:beg-of-seq))
+           #:beg-of-seq
+           #:list->array
+           #:array->list))
