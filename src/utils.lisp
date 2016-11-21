@@ -8,7 +8,7 @@
   "Format date that written as string in Unix time format"
   (let ((timestamp (unix-to-timestamp (parse-integer unix-string))))
     (format-timestring nil timestamp
-                       :format '((:day 2) #\- :short-month #\- :year #\Space :hour #\: :min))))
+                       :format '((:day 2) #\- :short-month #\- :year #\Space (:hour 2) #\: (:min 2)))))
 
 (defun beg-of-seq (sequence count)
     "Get first @cl:param(count) elements from @cl:param(sequence)"
