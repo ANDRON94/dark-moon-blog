@@ -13,6 +13,10 @@
          :initform (error "Must supply an article name.")
          :accessor article-name
          :type string)
+   (author :initarg :author
+         :initform (error "Must supply an article author.")
+         :accessor article-author
+         :type string)
    (status :initarg :status
            :initform (error "Must supply an article status.") ; "Unpublished" "Published" "Hidden"
            :accessor article-status
@@ -30,14 +34,45 @@
                   :accessor article-creation-date
                   :type string)
    (post-date :initarg :post-date
-                  :initform (error "Must supply a post date of article.")
-                  :accessor article-post-date
-                  :type string)
+              :initform creation-date
+              :accessor article-post-date
+              :type string)
    (data :initarg :data
          :initform ""
          :accessor article-data
          :type string))
   (:documentation "Article model."))
+
+(defun save-article (article)
+  "Insert or update @cl:param(article) into database"
+  (let ((doc (make-document)))
+    (add-element "id" (article-id article) doc)
+    (add-element "name" (article-name article) doc)
+    (add-element "author" (article-author article) doc)
+    (add-element "status" (article-status article) doc)
+    (add-element "categories" (array->list (article-categories article)) doc)
+    (add-element "tags" (array->list (article-tags article)) doc)
+    (add-element "creation_date" (article-creation-date article) doc)
+    (add-element "post_date" (article-post-date article) doc)
+    (add-element "data" (article-data article) doc)
+    (db.save *articles-collection* doc :mongo *db-connection*)))
+
+(defun find-articles-by (&key (id nil) (name nil))
+  ()) ; TODO: implement!!!
+
+(defun remove-articles-by (&key)
+  ()) ; TODO: implement!!!
+
+;;;TEST
+
+(defun get-article-by-id (id)
+  (let ((doc (car (cadr (db.find *articles-collection* ($ "id" id)  :mongo *db-connection*)))))
+    (make-instance 'article
+                   :id (get-element "id" doc)
+                   :name (get-element "name" doc)
+                   :status (get-element "status" doc)
+                   :creation-date "0000"
+                   :post-date (get-element "post_date" doc))))
 
 ;;; IMPLEMENTATION
 

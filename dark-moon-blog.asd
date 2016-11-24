@@ -6,7 +6,7 @@
   :homepage "https://github.com/ANDRON94/dark-moon-blog"
   :bug-tracker "https://github.com/ANDRON94/dark-moon-blog/issues"
   :source-control (:git "git@github.com:ANDRON94/dark-moon-blog.git")
-  :depends-on (#:lucerne #:cl-mongo #:local-time)
+  :depends-on (#:lucerne #:cl-mongo #:local-time #:cl-pass)
   :defsystem-depends-on (#:asdf-linguist)
   :components ((:module "assets"
                 :components
@@ -20,8 +20,9 @@
                 :serial nil
                 :components
                 ((:file "packages")
-                 (:file "app" :depends-on ("packages"))
                  (:file "dark-moon-blog" :depends-on("packages"))
+                 (:file "app" :depends-on ("packages"))
+                 (:file "db" :depends-on ("packages"))
                  (:file "utils" :depends-on ("packages"))
                  (:module "routes"
                   :components
@@ -31,7 +32,8 @@
                  (:module "models"
                   :components
                   ((:file "package")
-                   (:file "article" :depends-on ("package")))))))
+                   (:file "article" :depends-on ("package"))
+                   (:file "user" :depends-on ("package")))))))
   :description "Personal blog."
   :long-description
   #.(uiop:read-file-string

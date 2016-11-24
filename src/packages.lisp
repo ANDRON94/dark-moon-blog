@@ -15,6 +15,13 @@
            #:stop
            #:restart))
 
+(defpackage #:dark-moon-blog.db
+  (:documentation "Setup connection to a database.")
+  (:use #:cl #:cl-mongo)
+  (:export #:*db-connection*
+           #:*articles-collection*
+           #:*users-collection*))
+
 (defpackage #:dark-moon-blog.utils
   (:documentation "Collection of helpers")
   (:use #:cl)
