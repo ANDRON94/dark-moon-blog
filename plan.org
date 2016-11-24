@@ -28,7 +28,7 @@ Example: 'Traveling', 'Developing'
 *** date(calendar)
 * Tasks [0%]                                                          :tasks:
 ** TODO Create database models [0/3]
-*** TODO Article model [1/4]
+*** TODO Article model [2/4]
 **** DONE Create class
      CLOSED: [2016-10-20 чт 19:39]
      - State "DONE"       from "TODO"       [2016-10-20 чт 19:39]
@@ -40,7 +40,9 @@ Example: 'Traveling', 'Developing'
 ***** Creation date :date
 ***** Last post date :date
 ***** Data :string
-**** TODO Create util methods(print, etc.)
+**** DONE Create util methods(print, etc.)
+     CLOSED: [2016-10-23 нд 01:56]
+     - State "DONE"       from "TODO"       [2016-10-23 нд 01:56]
 **** TODO Test model
 **** TODO Create database entity
 *** TODO User model
