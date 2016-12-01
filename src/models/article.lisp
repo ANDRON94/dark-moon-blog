@@ -57,8 +57,31 @@
     (add-element "data" (article-data article) doc)
     (db.save *articles-collection* doc :mongo *db-connection*)))
 
-(defun find-articles-by (&key (id nil) (name nil))
-  ()) ; TODO: implement!!!
+(defun find-articles-by (&key (id nil) (name nil) (author nil)
+                           (status nil) (categories nil) (tags nil)
+                           (creation-date nil) (post-date nil)
+                           (limit 1) (skip 0))
+  (let* ((query-res (db.find *articles-collection* ($ "status" status)
+                            :limit limit
+                            :skip skip
+                            :mongo *db-connection*))
+        (docs (second query-res)))
+    (loop :with articles = (make-array (length docs)
+                                       :fill-pointer 0)
+       :for doc :in docs
+       :do (vector-push (make-instance 'article
+                                       :id (get-element "id" doc)
+                                       :name (get-element "name" doc)
+                                       :author "TestAuthor"
+                                       ;; :author (get-element "author" doc)
+                                       :status (get-element "status" doc)
+                                       ;; :categories (get-element "categories" doc)
+                                       ;; :tags (get-element "tags" doc)
+                                       :creation-date (get-element "creation_date" doc)
+                                       :post-date (get-element "post_date" doc)
+                                       :data (get-element "data" doc))
+                        articles)
+       :finally (return articles))))
 
 (defun remove-articles-by (&key)
   ()) ; TODO: implement!!!
@@ -78,14 +101,14 @@
 
 (defmethod print-object ((object article) stream)
   (print-unreadable-object (object stream)
-    (with-slots (id name status (c categories)
-                    tags creation-date
-                    post-date data) object
+    (with-slots (id name author status
+                    (c categories) tags
+                    creation-date post-date data) object
       (let ((cd (format-date creation-date))
             (pd (format-date post-date))
             (d (beg-of-seq data 50)))
         (format stream
-                "Id: ~d~%Name: ~a~%Status: ~a~%Categories: ~a~%~
+                "Id: ~d~%Name: ~a~%Author: ~a~%Status: ~a~%Categories: ~a~%~
                Tags: ~a~%Creation date: ~a~%Post date: ~a~%~
                Data preview: \"~a\""
-                id name status c tags cd pd d)))))
+                id name author status c tags cd pd d)))))

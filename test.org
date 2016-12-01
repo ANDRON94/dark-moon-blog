@@ -1,0 +1,10 @@
+* Startup commands
+- (use-package :dark-moon-blog.models)
+- (use-package :dark-moon-blog.db)
+- (use-package :cl-mongo)
+- (defvar *test-article* (make-instance 'article :name "My test article 1" :status "Published" :categories #("Travelling" "Other" "Programming") :tags #("C++" "JavaScript" "Funny") :creation-date "111111111" :post-date "111111222" :data "Lore ipsum Ipsum Lore. Ahahahahah. I hope you read this cause I find and kill if not =) More, more, more, more funny text"))
+- (defvar *test-user* (make-instance 'user :name "andron94" :full-name "Andrii Tymchuk" :password "Test"))
+- (save-article *test-article*)
+- (save-user *test-user*)
+- (pp (iter (db.find *articles-collection* :all)))
+- (pp (iter (db.find *users-collection* :all)))
