@@ -1,0 +1,5 @@
+* Introduction
+(A simple) Personal blog built on top of:
+1. Web server - [[https://httpd.apache.org/][The Apache HTTP Server]]
+2. Easy-to-understand article markup - [[https://orgmode.org/][Org Mode]]
+3. Publishing tool (convert to HTML, upload files to server, etc) - [[https://orgmode.org/manual/Publishing.html][org-publish]]
