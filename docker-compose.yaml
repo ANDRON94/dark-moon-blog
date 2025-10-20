@@ -1,0 +1,16 @@
+services:
+  webserver:
+    build:
+      tags:
+        - "dark-moon-blog"
+      context: "."
+    image: "httpd:2.4.65"
+    ports:
+      - "8080:80"
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: "./public-html"
+        target: "/usr/local/apache2/htdocs/"
+        read_only: true
